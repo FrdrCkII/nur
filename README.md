@@ -1,3 +1,9 @@
+# My NUR Packages
+
+## Packages
+
+[aria2-fast](https://aur.archlinux.org/packages/aria2-fast)
+
 # nur-packages-template
 
 **A template for [NUR](https://github.com/nix-community/NUR) repositories**
