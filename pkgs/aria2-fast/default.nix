@@ -12,7 +12,7 @@
   libssh2,
   cppunit,
   sphinx,
-  # Security,
+  Security ? null,
   nixosTests,
 }:
 
@@ -41,7 +41,7 @@ stdenv.mkDerivation rec {
     sqlite
     zlib
     libssh2
-  ] ++ lib.optional stdenv.hostPlatform.isDarwin Security;
+  ] ++ lib.optional (stdenv.hostPlatform.isDarwin && Security != null) Security;
 
   outputs = [
     "bin"
@@ -61,7 +61,7 @@ stdenv.mkDerivation rec {
     patchShebangs --build doc/manual-src/en/mkapiref.py
   '';
 
-  cargoPatches = [ ./src.patch ];
+  patches = [ ./src.patch ];
 
   nativeCheckInputs = [ cppunit ];
   doCheck = false; # needs the net
