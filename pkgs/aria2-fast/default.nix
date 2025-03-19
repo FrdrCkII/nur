@@ -61,8 +61,6 @@ stdenv.mkDerivation rec {
     patchShebangs --build doc/manual-src/en/mkapiref.py
   '';
 
-  patches = [ ./src.patch ];
-
   nativeCheckInputs = [ cppunit ];
   doCheck = false; # needs the net
 
@@ -85,4 +83,6 @@ stdenv.mkDerivation rec {
     #   timhae
     # ];
   };
+
+  patches = [ ./src.patch ];
 }
